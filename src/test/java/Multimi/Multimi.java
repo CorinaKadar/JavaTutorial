@@ -2,10 +2,7 @@ package Multimi;
 
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Multimi {
 
@@ -16,12 +13,14 @@ public class Multimi {
         //afisareColegiArray();
         //afisareColegiArrayList();
         //obiecteMap();
-        tariOrase();
+        //tariOrase();
+        afisareColegiArrayList2();
 
     }
 
     //afisam numele colegilor de la curs (array)
     //array functioneaza pe primitive si wrapper objects
+    //o singra multime cu un element sau cu focusul pe un singur element
     public void afisareColegiArray() {
         String[] colegi = new String[6]; //array de stringuri cand apare String[]
         colegi[0] = "Larisa";
@@ -36,10 +35,11 @@ public class Multimi {
     }
 
     //afisam numele colegilor de la curs (arraylist)
-    //array list functioneaa pe wrapper objects (Integer)
+    //array list functioneaza pe wrapper objects (Integer)
     //se foloseste Integer in loc de int pt ca lista nu poate sa functioneze pe primitiva (int)
+    //o singra multime cu un element sau cu focusul pe un singur element
     public void afisareColegiArrayList() {
-        List<String> colegi=new ArrayList<>(); // la List ii valoarea cu <E>
+        List<String> colegi = new ArrayList<>(); // la List ii valoarea cu <E>
         colegi.add("Larisa");
         colegi.add("Robert");
         colegi.add("Daniel");
@@ -51,8 +51,15 @@ public class Multimi {
         }
     }
 
-    //o singra multime cu focusul pe un singur element -- key-value --> Map = multime ce ofera posibilitatea maparii imformatiei de tip key(masina)-value(BMW)
-    // se foloseste pt o multime ce nu se poate identifica in aceasi categorie
+    public void afisareColegiArrayList2() {
+        List<String> colegi = Arrays.asList("Larisa", "Corina", "Vlad");
+        for (Integer index = 0; index < colegi.size(); index++) {
+            System.out.println("Numele cursantului este " + colegi.get(index));
+        }
+    }
+
+    //Structura compusa de tipul key-value --> Map = multime ce ofera posibilitatea maparii imformatiei de tip key(masina)-value(BMW)
+    //Se foloseste pt o multime ce nu se poate identifica in aceasi categorie
     //des folosite cand se citesc fisiere
     public void obiecteMap(){
         Map<String, String> obiecte = new HashMap<>();  //key-value raport 1:1 String-String in cazul dat
@@ -94,6 +101,7 @@ public class Multimi {
             System.out.println("Cheia: Tara este " + key);
             System.out.println("Valoarea: Orasele sunt " + tari.get(key));
         }
+
 
     }
 }
